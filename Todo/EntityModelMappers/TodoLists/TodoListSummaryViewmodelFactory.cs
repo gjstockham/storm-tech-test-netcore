@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using Todo.Data.Entities;
-using Todo.EntityModelMappers.TodoItems;
-using Todo.Models.TodoLists;
-
-namespace Todo.EntityModelMappers.TodoLists
+﻿namespace Todo.EntityModelMappers.TodoLists
 {
+    using System.Linq;
+    using Todo.Data.Entities;
+    using Todo.EntityModelMappers.TodoItems;
+    using Todo.Models.TodoLists;
+
     public static class TodoListSummaryViewmodelFactory
     {
         public static TodoListSummaryViewmodel Create(TodoList todoList)

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Todo.Data.Entities;
-
-namespace Todo.Data
+﻿namespace Todo.Data
 {
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore;
+    using Todo.Data.Entities;
+
     public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -14,20 +11,20 @@ namespace Todo.Data
         {
         }
 
-        
         public DbSet<TodoList> TodoLists { get; set; }
+
         public DbSet<TodoItem> TodoItems { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(builder);
 
-            modelBuilder.Entity<TodoList>(entity =>
+            builder.Entity<TodoList>(entity =>
             {
                 entity.Property(e => e.Title).IsRequired();
             });
 
-            modelBuilder.Entity<TodoItem>(entity =>
+            builder.Entity<TodoItem>(entity =>
             {
                 entity.HasOne(d => d.TodoList)
                     .WithMany(p => p.Items)

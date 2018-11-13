@@ -1,9 +1,9 @@
-﻿using Todo.Data.Entities;
-using Todo.Models.TodoItems;
-
-namespace Todo.EntityModelMappers.TodoItems
+﻿namespace Todo.EntityModelMappers.TodoItems
 {
-    public class TodoItemCreateFieldsFactory
+    using Todo.Data.Entities;
+    using Todo.Models.TodoItems;
+
+    public static class TodoItemCreateFieldsFactory
     {
         public static TodoItemCreateFields Create(TodoList todoList, string defaultResponsibleUserId)
         {

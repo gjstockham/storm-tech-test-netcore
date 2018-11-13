@@ -1,12 +1,12 @@
-using System.Linq;
-using Microsoft.AspNetCore.Identity;
-using Todo.Data.Entities;
-using Todo.EntityModelMappers.TodoItems;
-using Todo.Models.TodoItems;
-using Xunit;
-
 namespace Todo.Tests
 {
+    using System.Linq;
+    using Microsoft.AspNetCore.Identity;
+    using Todo.Data.Entities;
+    using Todo.EntityModelMappers.TodoItems;
+    using Todo.Models.TodoItems;
+    using Xunit;
+
     public class WhenTodoItemIsConvertedToEditFields
     {
         private readonly TodoItem srcTodoItem;

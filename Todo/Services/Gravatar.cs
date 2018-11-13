@@ -1,8 +1,8 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-
-namespace Todo.Services
+﻿namespace Todo.Services
 {
+    using System.Security.Cryptography;
+    using System.Text;
+
     public static class Gravatar
     {
         public static string GetHash(string emailAddress)
@@ -17,6 +17,7 @@ namespace Todo.Services
                 {
                     builder.Append(b.ToString("X2"));
                 }
+
                 return builder.ToString().ToLowerInvariant();
             }
         }

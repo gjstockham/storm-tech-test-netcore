@@ -1,10 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Identity;
-using Todo.Data.Entities;
-
 namespace Todo.Tests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.AspNetCore.Identity;
+    using Todo.Data.Entities;
+
     /*
      * This class makes it easier for tests to create new TodoLists with TodoItems correctly hooked up
      */
@@ -12,7 +12,9 @@ namespace Todo.Tests
     {
         private readonly string title;
         private readonly IdentityUser owner;
+#pragma warning disable SA1009 // Closing parenthesis must be spaced correctly
         private readonly List<(string, Importance)> items = new List<(string, Importance)>();
+#pragma warning restore SA1009 // Closing parenthesis must be spaced correctly
 
         public TestTodoListBuilder(IdentityUser owner, string title)
         {

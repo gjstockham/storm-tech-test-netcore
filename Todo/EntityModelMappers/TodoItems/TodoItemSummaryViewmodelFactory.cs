@@ -1,8 +1,8 @@
-﻿using Todo.Data.Entities;
-using Todo.Models.TodoItems;
-
-namespace Todo.EntityModelMappers.TodoItems
+﻿namespace Todo.EntityModelMappers.TodoItems
 {
+    using Todo.Data.Entities;
+    using Todo.Models.TodoItems;
+
     public static class TodoItemSummaryViewmodelFactory
     {
         public static TodoItemSummaryViewmodel Create(TodoItem ti)

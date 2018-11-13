@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Todo.Data;
-using Todo.Data.Entities;
-
-namespace Todo.Services
+﻿namespace Todo.Services
 {
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
+    using Todo.Data;
+    using Todo.Data.Entities;
+
     public static class ApplicationDbContextConvenience
     {
         public static IQueryable<TodoList> RelevantTodoLists(this ApplicationDbContext dbContext, string userId)

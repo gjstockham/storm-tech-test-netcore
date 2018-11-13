@@ -1,7 +1,7 @@
-﻿using System.Security.Claims;
-
-namespace Todo.Services
+﻿namespace Todo.Services
 {
+    using System.Security.Claims;
+
     public static class UserConvenience
     {
         public static string Id(this ClaimsPrincipal claimsPrincipal)

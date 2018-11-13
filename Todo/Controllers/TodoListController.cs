@@ -1,16 +1,16 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Todo.Data;
-using Todo.Data.Entities;
-using Todo.EntityModelMappers.TodoLists;
-using Todo.Models.TodoLists;
-using Todo.Services;
-
-namespace Todo.Controllers
+﻿namespace Todo.Controllers
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Todo.Data;
+    using Todo.Data.Entities;
+    using Todo.EntityModelMappers.TodoLists;
+    using Todo.Models.TodoLists;
+    using Todo.Services;
+
     [Authorize]
     public class TodoListController : Controller
     {
@@ -48,7 +48,10 @@ namespace Todo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TodoListFields fields)
         {
-            if (!ModelState.IsValid) { return View(fields); }
+            if (!ModelState.IsValid)
+            {
+                return View(fields);
+            }
 
             var currentUser = await userStore.FindByIdAsync(User.Id(), CancellationToken.None);
 
@@ -57,7 +60,7 @@ namespace Todo.Controllers
             await dbContext.AddAsync(todoList);
             await dbContext.SaveChangesAsync();
 
-            return RedirectToAction("Create", "TodoItem", new {todoList.TodoListId});
+            return RedirectToAction("Create", "TodoItem", new { todoList.TodoListId });
         }
     }
 }

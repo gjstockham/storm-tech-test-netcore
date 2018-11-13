@@ -1,16 +1,12 @@
-﻿using Todo.Data.Entities;
-
-namespace Todo.Models.TodoItems
+﻿namespace Todo.Models.TodoItems
 {
+    using Todo.Data.Entities;
+
     public class TodoItemCreateFields
     {
-        public int TodoListId { get; set; }
-        public string Title { get; set; }
-        public string TodoListTitle { get; set; }
-        public string ResponsiblePartyId { get; set; }
-        public Importance Importance { get; set; } = Importance.Medium;
-
-        public TodoItemCreateFields() { }
+        public TodoItemCreateFields()
+        {
+        }
 
         public TodoItemCreateFields(int todoListId, string todoListTitle, string responsiblePartyId)
         {
@@ -18,5 +14,15 @@ namespace Todo.Models.TodoItems
             TodoListTitle = todoListTitle;
             ResponsiblePartyId = responsiblePartyId;
         }
+
+        public int TodoListId { get; set; }
+
+        public string Title { get; set; }
+
+        public string TodoListTitle { get; set; }
+
+        public string ResponsiblePartyId { get; set; }
+
+        public Importance Importance { get; set; } = Importance.Medium;
     }
 }

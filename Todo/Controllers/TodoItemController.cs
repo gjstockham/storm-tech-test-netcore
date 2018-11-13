@@ -1,14 +1,14 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Todo.Data;
-using Todo.Data.Entities;
-using Todo.EntityModelMappers.TodoItems;
-using Todo.Models.TodoItems;
-using Todo.Services;
-
-namespace Todo.Controllers
+﻿namespace Todo.Controllers
 {
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Todo.Data;
+    using Todo.Data.Entities;
+    using Todo.EntityModelMappers.TodoItems;
+    using Todo.Models.TodoItems;
+    using Todo.Services;
+
     [Authorize]
     public class TodoItemController : Controller
     {
@@ -31,7 +31,10 @@ namespace Todo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TodoItemCreateFields fields)
         {
-            if (!ModelState.IsValid) { return View(fields); }
+            if (!ModelState.IsValid)
+            {
+                return View(fields);
+            }
 
             var item = new TodoItem(fields.TodoListId, fields.ResponsiblePartyId, fields.Title, fields.Importance);
 
@@ -53,7 +56,10 @@ namespace Todo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(TodoItemEditFields fields)
         {
-            if (!ModelState.IsValid) { return View(fields); }
+            if (!ModelState.IsValid)
+            {
+                return View(fields);
+            }
 
             var todoItem = dbContext.SingleTodoItem(fields.TodoItemId);
 
@@ -67,7 +73,7 @@ namespace Todo.Controllers
 
         private RedirectToActionResult RedirectToListDetail(int fieldsTodoListId)
         {
-            return RedirectToAction("Detail", "TodoList", new {todoListId = fieldsTodoListId});
+            return RedirectToAction("Detail", "TodoList", new { todoListId = fieldsTodoListId });
         }
     }
 }

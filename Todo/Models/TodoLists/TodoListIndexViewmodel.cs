@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-
-namespace Todo.Models.TodoLists
+﻿namespace Todo.Models.TodoLists
 {
+    using System.Collections.Generic;
+
     public class TodoListIndexViewmodel
     {
-        public ICollection<TodoListSummaryViewmodel> Lists { get; }
-
         public TodoListIndexViewmodel(ICollection<TodoListSummaryViewmodel> lists)
         {
             Lists = lists;
         }
+
+        public ICollection<TodoListSummaryViewmodel> Lists { get; }
     }
 }

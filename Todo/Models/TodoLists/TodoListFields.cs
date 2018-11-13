@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Todo.Models.TodoLists
+﻿namespace Todo.Models.TodoLists
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class TodoListFields
     {
         [Required]
